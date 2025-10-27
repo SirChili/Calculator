@@ -1,0 +1,54 @@
+#include <iostream>
+#include <cmath> // doing this to get the hang of cmath
+
+using namespace std;
+
+void addition() {
+
+	int num1 = 0;
+	int num2 = 0;
+	system("cls");
+	cout << "Enter First Number: \n";
+	cin >> num1;
+	system("cls");
+	cout << "Enter Second Number: \n";
+	cout << num1 << " + ";
+	cin >> num2;
+	double total = num1 + num2;
+	system("cls");
+	cout << num1 << " + " << num2 << " = " << total << '\n';
+
+}
+
+void subtraction() {
+
+	int num1 = 0;
+	int num2 = 0;
+	system("cls");
+	cout << "Enter First Number: \n";
+	cin >> num1;
+	system("cls");
+	cout << "Enter Second Number: \n";
+	cout << num1 << " - ";
+	cin >> num2;
+	double total = num1 - num2;
+	system("cls");
+	cout << num1 << " - " << num2 << " = " << total << '\n';
+
+
+}
+
+int main() {
+
+	int choice;
+	
+	cout << "1. Addition \n2. Subtraction?\n Enter By Number.\n";
+	cin >> choice;
+
+	if (choice == 1){
+		addition();
+	}
+	if (choice == 2) {
+		subtraction();
+	}
+}
