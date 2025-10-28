@@ -1,5 +1,10 @@
 #include <iostream>
+#include <vector>
 #include <cmath> // doing this to get the hang of cmath
+
+// In C++, addition and subtraction all happen after division and multiplication
+
+//ISO C++14 Standard is the version of C++ I'm using
 
 using namespace std;
 
@@ -19,7 +24,6 @@ void addition() {
 	cout << num1 << " + " << num2 << " = " << total << '\n';
 
 }
-
 void subtraction() {
 
 	int num1 = 0;
@@ -37,18 +41,122 @@ void subtraction() {
 
 
 }
+void multiplication() {
+
+	int num1 = 0;
+	int num2 = 0;
+	system("cls");
+	cout << "Enter First Number: \n";
+	cin >> num1;
+	system("cls");
+	cout << "Enter Second Number: \n";
+	cout << num1 << " x ";
+	cin >> num2;
+	double total = num1 * num2;
+	system("cls");
+	cout << num1 << " x " << num2 << " = " << total << '\n';
+
+}
+void division() {
+
+	int num1 = 0;
+	int num2 = 0;
+	system("cls");
+	cout << "Enter First Number: \n";
+	cin >> num1;
+	system("cls");
+	cout << "Enter Second Number: \n";
+	cout << num1 << " / ";
+	cin >> num2;
+	double total1 = num1 / num2;
+	double total2 = num1 % num2;
+	system("cls");
+	cout << num1 << " / " << num2 << " = " << total1 << '\n';
+	cout << "Remainder Of " << total2 << "\n";
+
+}
+void squareRoot() {
+
+	int num1 = 0;
+
+	system("cls");
+	cout << "Enter Number: \n";
+	cin >> num1;
+	system("cls");
+	
+	double total = sqrt(num1);
+
+	cout << "_/" << num1 << " = " << total;
+
+}
+void quadraticOne() {
+	// Formula: x = −(b) ± √ b^2 − 4ac / 2a
+
+	double a,b,c;
+	
+	cout << "Choose A, B, C\n";
+	cin >> a; cin >> b; cin >> c;
+
+	double numerator = sqrt(pow((b), 2) - (4 * a * c));
+	
+	double rootOne = (-b + numerator) / (2 * a);
+	double rootTwo = (-b - numerator) / (2 * a);
+
+	cout << "{" << rootOne << "," << rootTwo << "}" << '\n';
+
+}
+ 
+void dividingPolynomials() {
+
+	//Long Division
+	// (9x^5 - 9x^4 = x^3 - 12x^2 + x - 11) / (3x - 5)
+
+	long what = 3 - 5;
+
+	vector<double> nums = {};
+
+
+}
+
+// Incomplete
+void quadraticTwo() {
+	//Formula: ax^2 + bx = 0
+
+	double a;
+	double b;
+
+	double total = a;
+
+}
+
+// Incomplete
+void radicalEquations() {
+
+	double a = 0;
+	double b = 0;
+	double x = 0;
+
+	double radical = a * (x) * b;
+
+}
+
 
 int main() {
 
 	int choice;
 	
-	cout << "1. Addition \n2. Subtraction?\n Enter By Number.\n";
+	cout << "1. Addition \n2. Subtraction\n3. Multiplication\n4. Division\n5. Square Root\n6. Quadratic\n7. Radical Equations\n\nEnter By Number.\n";
 	cin >> choice;
 
-	if (choice == 1){
-		addition();
-	}
-	if (choice == 2) {
-		subtraction();
-	}
+
+	// Think of a better was rather than a ton of if statements
+	if (choice == 1) { system("cls");  addition(); main(); }
+	if (choice == 2) { system("cls"); subtraction(); }
+	if (choice == 3) { system("cls"); multiplication(); }
+	if (choice == 4) { system("cls"); division(); }
+	if (choice == 5) { system("cls"); squareRoot(); }
+	if (choice == 6) { system("cls"); quadraticOne(); }
+	if (choice == 7) { system("cls"); radicalEquations(); }
+	if (choice > 7 || choice < 1) { system("cls"); cout << "Invalid Input.\n\n"; main(); }
+
 }
