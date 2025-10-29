@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cmath> // doing this to get the hang of cmath
-
-// In C++, addition and subtraction all happen after division and multiplication
+#include <cmath>
 
 //ISO C++14 Standard is the version of C++ I'm using
 
@@ -88,7 +86,7 @@ void squareRoot() {
 
 	cout << "_/" << num1 << " = " << total;
 
-}
+} 
 void quadraticOne() {
 	// Formula: x = −(b) ± √ b^2 − 4ac / 2a
 
@@ -105,31 +103,70 @@ void quadraticOne() {
 	cout << "{" << rootOne << "," << rootTwo << "}" << '\n';
 
 }
- 
 void dividingPolynomials() {
+	//Synthetic Division (Simplified Long Division (Doesn't Work if something is in front of x for d(x)))
+	double a,b,c,d,e,f;
+	double g;
 
-	//Long Division
-	// (9x^5 - 9x^4 = x^3 - 12x^2 + x - 11) / (3x - 5)
+	cout << "What is d(x)\n ex. -4 or 4?\n";
+	cin >> g;
+	system("cls");
+	cout << "Input numbers for f(x)\nStarts on 5th Power, put 0 if the power is not there\n";
+	cin >> a; cin >> b; cin >> c; cin >> d; cin >> e; cin >> f;
 
-	long what = 3 - 5;
+	g = -(g);
 
-	vector<double> nums = {};
+	system("cls");
 
+	double g_Times_a = g * a;
+	double x3 = g_Times_a + b;
+	double x3_Times_g = g * x3;
+	double x2 = x3_Times_g + c;
+	double x2_Times_g = g * x2;
+	double x = x2_Times_g + d;
+	double x_Times_g = g * x;
+	double cont = x_Times_g + e;
+	double cont_Times_g = cont * g;
+	double rem = cont_Times_g + f;
 
+	cout << "\n(" << a << "x^4 " << x3 << "x^3 " << x2 << "x^2 " << x << "x " << cont << ") " << rem << "/ x " << -(g) << '\n';
+
+	if (rem == 0) { cout << "Is a Factor\n"; }
+	else { cout << "Not a Factor"; }
+}
+void distanceBetweenPoints() {
+	// 2D Formula: d = √(x2 - x1)^2 + (y2 - y1)^2
+	// 3D Formula: d = √(x2 - x1)^2 + (y2 - y1)^2 + (z2 - z1)^2
+
+	double x1, x2, y1, y2;
+
+	//x1,y1 values
+	cout << "("; cin >> x1;
+	system("cls");
+	cout << "(" << x1 << ','; cin >> y1;
+	system("cls");
+	cout << '(' << x1 << ',' << y1 << ')' << '\n';
+	
+	//x2,y2 values
+	cout << "("; cin >> x2;
+	system("cls");
+	cout << '(' << x1 << ',' << y1 << ')' << '\n';
+	cout << "(" << x2 << ','; cin >> y2;
+	system("cls");
+	cout << '(' << x1 << ',' << y1 << ')' << '\n';
+	cout << '(' << x2 << ',' << y2 << ')' << '\n';
+
+	double d = sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2));
+
+	cout << "Distance: " << d << '\n';
 }
 
-// Incomplete
+//------------------Incomplete-----------------------
 void quadraticTwo() {
 	//Formula: ax^2 + bx = 0
 
-	double a;
-	double b;
-
-	double total = a;
-
+	
 }
-
-// Incomplete
 void radicalEquations() {
 
 	double a = 0;
@@ -145,7 +182,8 @@ int main() {
 
 	int choice;
 	
-	cout << "1. Addition \n2. Subtraction\n3. Multiplication\n4. Division\n5. Square Root\n6. Quadratic\n7. Radical Equations\n\nEnter By Number.\n";
+	cout << "1. Addition \n2. Subtraction\n3. Multiplication\n4. Division\n5. Square Root\n6. Quadratic\n7. Dividing Polynomials\n8. Distance\n";
+	cout << "\nEnter By Number.\n";
 	cin >> choice;
 
 
@@ -156,7 +194,8 @@ int main() {
 	if (choice == 4) { system("cls"); division(); }
 	if (choice == 5) { system("cls"); squareRoot(); }
 	if (choice == 6) { system("cls"); quadraticOne(); }
-	if (choice == 7) { system("cls"); radicalEquations(); }
-	if (choice > 7 || choice < 1) { system("cls"); cout << "Invalid Input.\n\n"; main(); }
+	if (choice == 7) { system("cls"); dividingPolynomials(); }
+	if (choice == 8) { system("cls"); distanceBetweenPoints(); }
+	if (choice > 8 || choice < 1) { system("cls"); cout << "Invalid Input.\n\n"; main(); }
 
 }
