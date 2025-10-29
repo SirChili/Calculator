@@ -73,20 +73,7 @@ void division() {
 	cout << "Remainder Of " << total2 << "\n";
 
 }
-void squareRoot() {
-
-	int num1 = 0;
-
-	system("cls");
-	cout << "Enter Number: \n";
-	cin >> num1;
-	system("cls");
-	
-	double total = sqrt(num1);
-
-	cout << "_/" << num1 << " = " << total;
-
-} 
+// Square Root Position
 void quadraticOne() {
 	// Formula: x = −(b) ± √ b^2 − 4ac / 2a
 
@@ -138,27 +125,61 @@ void distanceBetweenPoints() {
 	// 2D Formula: d = √(x2 - x1)^2 + (y2 - y1)^2
 	// 3D Formula: d = √(x2 - x1)^2 + (y2 - y1)^2 + (z2 - z1)^2
 
-	double x1, x2, y1, y2;
+	char choice;
 
-	//x1,y1 values
-	cout << "("; cin >> x1;
+	cout << "Is it Three Dimensional? y/n\n";
+	cin >> choice;
 	system("cls");
-	cout << "(" << x1 << ','; cin >> y1;
-	system("cls");
-	cout << '(' << x1 << ',' << y1 << ')' << '\n';
-	
-	//x2,y2 values
-	cout << "("; cin >> x2;
-	system("cls");
-	cout << '(' << x1 << ',' << y1 << ')' << '\n';
-	cout << "(" << x2 << ','; cin >> y2;
-	system("cls");
-	cout << '(' << x1 << ',' << y1 << ')' << '\n';
-	cout << '(' << x2 << ',' << y2 << ')' << '\n';
+	double x1, x2, y1, y2,z1,z2;
 
-	double d = sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2));
+	if (choice == 'y') {
 
-	cout << "Distance: " << d << '\n';
+		//x1,y1,z1 values
+		cout << "("; cin >> x1;
+		system("cls");
+		cout << "(" << x1 << ','; cin >> y1;
+		system("cls");
+		cout << '(' << x1 << ',' << y1 << ','; cin >> z1;
+		system("cls");
+		cout << '(' << x1 << ',' << y1 << ',' << z1 << ")\n";
+		
+		//x2,y2,z2 values
+		cout << "("; cin >> x2;
+		system("cls");
+		cout << '(' << x1 << ',' << y1 << ',' << z1 << ")\n";
+		cout << "(" << x2 << ','; cin >> y2;
+		system("cls");
+		cout << '(' << x1 << ',' << y1 << ',' << z1 << ")\n";
+		cout << '(' << x2 << ',' << y2 << ','; cin >> z2;
+		system("cls");
+		cout << '(' << x1 << ',' << y1 << ',' << z1 << ")\n";
+		cout << '(' << x2 << ',' << y2 << ',' << z2 << ")\n";
+
+		double d = sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2) + pow((z2 - z1), 2));
+		cout << "Distance: " << d << '\n';
+	}
+	if (choice == 'n') {
+
+		//x1,y1 values
+		cout << "("; cin >> x1;
+		system("cls");
+		cout << "(" << x1 << ','; cin >> y1;
+		system("cls");
+		cout << '(' << x1 << ',' << y1 << ')' << '\n';
+
+		//x2,y2 values
+		cout << "("; cin >> x2;
+		system("cls");
+		cout << '(' << x1 << ',' << y1 << ')' << '\n';
+		cout << "(" << x2 << ','; cin >> y2;
+		system("cls");
+		cout << '(' << x1 << ',' << y1 << ')' << '\n';
+		cout << '(' << x2 << ',' << y2 << ')' << '\n';
+
+		double d = sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2));
+
+		cout << "Distance: " << d << '\n';
+	}
 }
 
 //------------------Incomplete-----------------------
@@ -167,6 +188,7 @@ void quadraticTwo() {
 
 	
 }
+
 void radicalEquations() {
 
 	double a = 0;
@@ -177,17 +199,52 @@ void radicalEquations() {
 
 }
 
+void squareRoot() {
+
+	system("cls");
+	int choice;
+
+	cout << "1. Positive \n2. Negative\n";
+	cin >> choice;
+
+	if (choice < 3 && choice > 0) {
+		int num1 = 0;
+		system("cls");
+		cout << "Enter Number: \n";
+		cin >> num1;
+		system("cls");
+
+		if (choice == 1) {
+			double total = sqrt(num1);
+			if (total > 0.0) {
+				cout << total << endl;
+				cout << "Yes?";
+			}
+			else { cout << "_/" << num1 << " = " << total << "\nUnfinished"; }
+		}
+		if (choice == 2) {
+			double total = sqrt(-1 * num1);
+			if (total > 0.0) {
+				cout << total << endl;
+				cout << "Yes?";
+			}
+			else { cout << total << 'i' << "\nUnfinished"; }
+		}
+	}
+	if (choice > 2 || choice < 1) { system("cls"); cout << "Invalid Input"; }
+}
+
+
 
 int main() {
 
 	int choice;
-	
+
 	cout << "1. Addition \n2. Subtraction\n3. Multiplication\n4. Division\n5. Square Root\n6. Quadratic\n7. Dividing Polynomials\n8. Distance\n";
 	cout << "\nEnter By Number.\n";
 	cin >> choice;
 
-
-	// Think of a better was rather than a ton of if statements
+	// Think of a better way rather than a ton of if statements
 	if (choice == 1) { system("cls");  addition(); main(); }
 	if (choice == 2) { system("cls"); subtraction(); }
 	if (choice == 3) { system("cls"); multiplication(); }
