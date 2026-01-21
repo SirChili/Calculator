@@ -6,6 +6,7 @@
 
 using namespace std;
 
+//------------------Basic Math-----------------------
 void addition() {
 
 	int num1 = 0;
@@ -73,17 +74,52 @@ void division() {
 	cout << "Remainder Of " << total2 << "\n";
 
 }
-// Square Root Position
+
+//------------------Algebra-----------------------
+void squareRoot() {
+
+	system("cls");
+	int choice;
+
+	cout << "Note: Negative will always be imaginary (i)\n";
+	cout << "1. Positive \n2. Negative\n\n";
+
+	cin >> choice;
+
+	if (choice < 3 && choice > 0) {
+		int num1 = 0;
+		system("cls");
+		cout << "Enter Number: \n";
+		cin >> num1;
+		system("cls");
+
+		if (choice == 1) {
+			double total = sqrt(num1);
+			if (total > 0.0) {
+				cout << total << endl;
+			}
+			else { cout << "_/" << num1 << " = " << total << "\nUnfinished"; }
+		}
+		if (choice == 2) {
+			double total = sqrt(-1 * num1);
+			if (total > 0.0) {
+				cout << total << 'i' << endl;
+			}
+			else { cout << total << 'i' << "\nUnfinished"; }
+		}
+	}
+	if (choice > 2 || choice < 1) { system("cls"); cout << "Invalid Input"; }
+}
 void quadraticOne() {
 	// Formula: x = −(b) ± √ b^2 − 4ac / 2a
 
-	double a,b,c;
-	
+	double a, b, c;
+
 	cout << "Choose A, B, C\n";
 	cin >> a; cin >> b; cin >> c;
 
 	double numerator = sqrt(pow((b), 2) - (4 * a * c));
-	
+
 	double rootOne = (-b + numerator) / (2 * a);
 	double rootTwo = (-b - numerator) / (2 * a);
 
@@ -92,7 +128,7 @@ void quadraticOne() {
 }
 void dividingPolynomials() {
 	//Synthetic Division (Simplified Long Division (Doesn't Work if something is in front of x for d(x)))
-	double a,b,c,d,e,f;
+	double a, b, c, d, e, f;
 	double g;
 
 	cout << "What is d(x)\n ex. -4 or 4?\n";
@@ -130,7 +166,7 @@ void distanceBetweenPoints() {
 	cout << "Is it Three Dimensional? y/n\n";
 	cin >> choice;
 	system("cls");
-	double x1, x2, y1, y2,z1,z2;
+	double x1, x2, y1, y2, z1, z2;
 
 	if (choice == 'y') {
 
@@ -142,7 +178,7 @@ void distanceBetweenPoints() {
 		cout << '(' << x1 << ',' << y1 << ','; cin >> z1;
 		system("cls");
 		cout << '(' << x1 << ',' << y1 << ',' << z1 << ")\n";
-		
+
 		//x2,y2,z2 values
 		cout << "("; cin >> x2;
 		system("cls");
@@ -181,78 +217,72 @@ void distanceBetweenPoints() {
 		cout << "Distance: " << d << '\n';
 	}
 }
-
-//------------------Incomplete-----------------------
+//incomplete
 void quadraticTwo() {
 	//Formula: ax^2 + bx = 0
 
-	
-}
 
+}
 void radicalEquations() {
 
 	double a = 0;
 	double b = 0;
 	double x = 0;
 
-	double radical = a * (x) * b;
+	double radical = a * (x)*b;
 
 }
 
-void squareRoot() {
+void exponentialEquations() {
 
-	system("cls");
-	int choice;
+	
 
-	cout << "1. Positive \n2. Negative\n";
-	cin >> choice;
-
-	if (choice < 3 && choice > 0) {
-		int num1 = 0;
-		system("cls");
-		cout << "Enter Number: \n";
-		cin >> num1;
-		system("cls");
-
-		if (choice == 1) {
-			double total = sqrt(num1);
-			if (total > 0.0) {
-				cout << total << endl;
-				cout << "Yes?";
-			}
-			else { cout << "_/" << num1 << " = " << total << "\nUnfinished"; }
-		}
-		if (choice == 2) {
-			double total = sqrt(-1 * num1);
-			if (total > 0.0) {
-				cout << total << endl;
-				cout << "Yes?";
-			}
-			else { cout << total << 'i' << "\nUnfinished"; }
-		}
-	}
-	if (choice > 2 || choice < 1) { system("cls"); cout << "Invalid Input"; }
 }
 
+//Exponential Equations | Ex. 9^n+10 + 3 = 81
+//Logarithmic Equations | Ex. log(x+15) = 2 - logx
+//Inverse Equations | Ex. f(x) = 2 + 1/2x
+//Linear Equations | Ex. 3 - 5x = 4(x + 2)
+//Linear Inequalities | Ex. 5(2x + 1) < 4(5x - 5)
+//composing functions | Ex. (g + h)(7) or (h o f) (-2)
+
+//------------------Trigonometry-----------------------
 
 
 int main() {
 
+	// Think of a better way rather than a ton of if statements
 	int choice;
 
-	cout << "1. Addition \n2. Subtraction\n3. Multiplication\n4. Division\n5. Square Root\n6. Quadratic\n7. Dividing Polynomials\n8. Distance\n";
+	cout << "What type of Math?\n\n1. Basic Math\n2. Algebra\n";
 	cout << "\nEnter By Number.\n";
+
 	cin >> choice;
 
-	// Think of a better way rather than a ton of if statements
-	if (choice == 1) { system("cls");  addition(); main(); }
-	if (choice == 2) { system("cls"); subtraction(); }
-	if (choice == 3) { system("cls"); multiplication(); }
-	if (choice == 4) { system("cls"); division(); }
-	if (choice == 5) { system("cls"); squareRoot(); }
-	if (choice == 6) { system("cls"); quadraticOne(); }
-	if (choice == 7) { system("cls"); dividingPolynomials(); }
-	if (choice == 8) { system("cls"); distanceBetweenPoints(); }
-	if (choice > 8 || choice < 1) { system("cls"); cout << "Invalid Input.\n\n"; main(); }
+	if (choice == 1) {
+		system("cls");
+		cout << "1. Addition \n2. Subtraction\n3. Multiplication\n4. Division\n";
+		cin >> choice;
+
+		if (choice == 1) { system("cls");  addition(); main(); }
+		if (choice == 2) { system("cls"); subtraction(); }
+		if (choice == 3) { system("cls"); multiplication(); }
+		if (choice == 4) { system("cls"); division(); }
+		if (choice > 4 || choice < 1) { system("cls"); cout << "Invalid Input.\n\n"; main(); }
+
+	}
+	if (choice == 2) {
+		system("cls");
+		cout << "1. Square Roots\n2. Quadratics\n3. Polynomials\n4. Distance Between Points\n";
+		cin >> choice;
+		
+		if (choice == 1) { system("cls"); squareRoot(); }
+		if (choice == 2) { system("cls"); quadraticOne(); }
+		if (choice == 3) { system("cls"); dividingPolynomials(); }
+		if (choice == 4) { system("cls"); distanceBetweenPoints(); }
+		if (choice > 4 || choice < 1) { system("cls"); cout << "Invalid Input.\n\n"; main(); }
+
+	}
+	if (choice > 2 || choice < 1) { system("cls"); cout << "Invalid Input.\n\n"; main(); }
 
 }
